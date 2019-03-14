@@ -23,33 +23,6 @@
         <p>This is a single page application of a To-Do list created with HTML CSS and Javascript.</p>
         <p>This page will also be used as a templete for other To-Do lists applications, to save time in already having a built front-end.</p>
 
-        <!-- Application Logic -->
-        <script>
-          console.log("Hello");
-
-          var list = ["apple", "orange", "pear", "lemon"];
-
-          // display current list
-          console.log("current list: " + list);
-
-          // display name of item you want to add (testing)
-          var item = "strawberry";
-          console.log("current item: " + item);
-
-          // logic to add item
-          var addItem = (item) => {
-            var temp = [...list];
-            temp.unshift(item);
-            list = temp;
-            return list;
-          }
-
-          // run add item
-          addItem(item);
-
-          console.log(list);
-        </script>
-
         <!-- Display information -->
         <div class="showList">
           <h2>Display the list</h2>
@@ -69,7 +42,7 @@
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     <i class="fa fa-minus" aria-hidden="true"></i>
                   </td>
-                  <td width="400">
+                  <td width="400" id="tableItems">
                     <p>item</p>
                   </td>
               </thead>
@@ -78,6 +51,52 @@
         </div>
       </div> <!-- content -->
     </div>
+    
+    <!-- Application Logic -->
+    <script>
+      "use strict";
+
+      console.log("Hello");
+
+      var list = ["apple", "orange", "pear", "lemon"];
+
+      // display current list
+      console.log("current list: " + list);
+
+      // display name of item you want to add (testing)
+      var item = "strawberry";
+      console.log("current item: " + item);
+
+      // logic to add item
+      var addItem = (item) => {
+        var temp = [...list];
+        temp.unshift(item);
+        list = temp;
+        return list;
+      }
+
+      // run add item
+      addItem(item);
+
+      console.log(list);
+      var btns = "<td width='100'><i class='fa fa-plus' aria-hidden='true'></i><i class='fa fa-minus' aria-hidden='true'></i></td>";
+
+      // Display array on page
+      function myFunc() {
+        var i;
+        var listItem;
+        var node ;
+        var textnode;
+
+        for (i = 0 ; i < list.length; i++) {
+          document.getElementById("tableItems") = document.createElement("td").innerHTML = list[i] + "<br>taco";
+        };
+      };
+
+      myFunc();
+    </script>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
