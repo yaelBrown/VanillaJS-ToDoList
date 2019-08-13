@@ -17,15 +17,15 @@
         <!-- Display information -->
         <div class="showList">
           <h2>Display the list</h2>
-          
+
           <!-- Add item button -->
-          <form>
+          <form method="POST" action="javascript:addItem(document.getElementById('input').value);">
             <input type="text" id="input" name="item">
             <button id="button">Add</button>
           </form>
 
           <!-- Table to map out contents -->
-          <div>
+          <main>
             <table class="table .table-dark" id="tableItems">
               <tr>
                 <td width="100">
@@ -39,23 +39,42 @@
             </table>
 
             <span id="list"></span>
-          </div>
+          </main>
         </div>
       </div> <!-- content -->
     </div>
     </main>
-    
+
     <!-- Application Logic -->
     <script>
       var list = ["apple", "orange", "pear", "lemon"];
-      
-      var tempItem = document.getElementById("input").value;
 
+      // Declare variables
+      var tempItem = document.getElementById("input").value;
       var button = document.getElementById("button");
-      
       var listArr = document.getElementById("list");
 
+      // Declare functions
+      function addItem(str) {
+        let ans = list.unshift(str);
+        updateList();
+        return;
+      }
+
+      function updateList() {
+        document.getElementById("list").innerHTML = list;
+        return;
+      }
+
+
+
+
       document.getElementById("list").innerHTML = list;
+
+
+
+
+
     </script>
 
   </body>
