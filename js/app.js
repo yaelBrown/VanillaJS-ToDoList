@@ -1,42 +1,40 @@
 "use strict";
 
 // Verify script is working
-console.log("Hello");
 
-var list = ["apple", "orange", "pear", "lemon"];
+let list = ["apple", "orange", "pear", "lemon"];
+let ul = document.querySelector('ul')
 
-// display current list
-console.log("current list: " + list);
+const showList = (arr) => {
+  
+}
+list.map((item, index )=> {
+  let li =document.createElement('li')
+  ul.appendChild(li)
+  li.innerHTML = item
 
-// display name of item you want to add (testing)
-var item = "strawberry";
-console.log("current item: " + item);
+    // THIS IS HOW U WOULD CREATE A BUTTON WITH AN ID
+    
+  // let button = document.createElement('button')
+  // button.innerHTML = 'X'
 
-// logic to add item
-var addItem = (item) => {
-  var temp = [...list];
-  temp.unshift(item);
-  list = temp;
-  return list;
+  // button.setAttribute('id', index )
+  // li.append(button)
+
+})
+
+const createList = (e) => {
+  //create li
+ let inputBox = document.getElementById('input')
+ list.unshift(inputBox.value)
+ inputBox.innerHTML = 'what'
+
+  addOne(inputBox)
 }
 
-// run add item
-addItem(item);
+const addOne = (inputBox) => {
+  let li = document.createElement('li')
+  ul.appendChild(li)
+  li.innerHTML= inputBox.value
 
-// log to console updated list array
-console.log(list);
-
-// declare variables
-var btns = "<td width='100'><i class='fa fa-minus' aria-hidden='true'></i></td>";
-var table = document.getElementById("tableItems");
-
-for (var i = 0 ; i < list.length; i++) {
-  // Create row
-  var newRow = table.insertRow(0);
-  for (var j = 0; j < list[i].length; j++) {
-    // create new cell
-    var cell = newRow.insertCell(j);
-
-?
-  }
 }
