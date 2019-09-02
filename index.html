@@ -19,20 +19,21 @@
           <h2>Display the list</h2>
 
           <!-- Add item button -->
-
           <form >
             <input type="text" id="input" name="item">
-            <button type="button"
-            onclick="createList()"
-            >Add</button>
+            <button type="button" onclick="addItem()">Add</button>
           </form>
 
           <!-- Table to map out contents -->
           <main>
-            <ul class="ul">
+            <ul class="ul" id="ul">
             </ul>
           </main>
-        </div>
+
+
+
+
+        </div> <!-- showList -->
       </div> <!-- content -->
     </div>
 
@@ -40,37 +41,40 @@
     </main>
 
     <!-- Application Logic -->
-    <!-- <script>
+    <script>
       var list = ["apple", "orange", "pear", "lemon"];
 
       // Declare variables
-      var tempItem = document.getElementById("input").value;
+      var itemToAdd;
       var button = document.getElementById("button");
       var listArr = document.getElementById("list");
+      var ul = document.getElementById("ul");
 
-      // Declare functions
-      function addItem(str) {
-        let ans = list.unshift(str);
-        updateList();
-        return;
+      // add item to list
+      const addItem = () => {
+        list.push(document.getElementById("input").value)
+        ul.innerHTML = updateList();
       }
 
-      function updateList() {
-        document.getElementById("list").innerHTML = list;
-        return;
+      // returns string of list elements surrounded by li's
+      const updateList = () => {
+        var temp = "";
+        list.map(function(e) {
+          temp += "<li>" + e + "</li>"
+        })
+
+        return temp;
       }
 
-
-
-
-      document.getElementById("list").innerHTML = list;
-
+      // Print list to screen on page load
+      ul.innerHTML = updateList();
 
 
 
 
-    </script> -->
-    <script src="./js/app.js"></script>
+
+    </script>
+    <!-- <script src="./js/app.js"></script> -->
 
   </body>
 </html>
